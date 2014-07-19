@@ -1,0 +1,16 @@
+
+.classpath
+
+.project
+
+bin/classes.dex
+
+*.class
+
+*.jar
+
+bin/LeftCenterRight.apk
+
+project.properties
+
+*.java

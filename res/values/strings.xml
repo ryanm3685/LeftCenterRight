@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">LeftCenterRight</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="roll">Roll</string>
+	<string name="NameDisplayLabel">Name</string>
+	<string name="ScoreDisplayLabel">Score</string>
+	<string name="NameLabel">0</string>
+	<string name="ScoreLabel">0</string>
+	<string name="Die1Label">*</string>
+	<string name="Die2Label">*</string>
+	<string name="Die3Label">*</string>
+	<string name="wassup">Wassup everyone!</string>
+</resources>
