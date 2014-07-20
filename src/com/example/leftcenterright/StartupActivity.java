@@ -19,6 +19,7 @@ public class StartupActivity extends Activity {
 	Button OKButton;
 	LCRGame game;
 	int n, i;
+	public  final static String SER_KEY = "com.example.leftcenterright.ser";
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -67,9 +68,14 @@ public class StartupActivity extends Activity {
 						// TODO Auto-generated method stub
 						String s = (playerNameField.getText()).toString();
 						game.addPlayer(s);
-						if (i == (n - 1))
+						if (i == (n - 1))//got everyone's name
 						{
 							Intent introIntent = new Intent(getApplicationContext(), IntroActivity.class);
+							Bundle introBundle = new Bundle();
+							String s1 = "what the flip";
+							introBundle.putSerializable(SER_KEY, s1);
+							introBundle.putSerializable("the_game", game);
+							introIntent.putExtras(introBundle);
 							startActivity(introIntent);
 						}
 						else

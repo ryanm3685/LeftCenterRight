@@ -13,4 +13,8 @@ bin/LeftCenterRight.apk
 
 project.properties
 
-*.java
+
+
+gen/com/example/leftcenterright/BuildConfig.java
+
+gen/com/example/leftcenterright/R.java
