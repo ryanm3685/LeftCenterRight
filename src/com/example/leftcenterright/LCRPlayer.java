@@ -12,11 +12,12 @@ public class LCRPlayer implements Serializable {
 	public LCRPlayer(String name)
 	{
 		this.name = name;
-		score = 0;
+		score = 9;
 		chips = 0;
 	}
 	
 	public String getName() { return name; }
+	public void setScore(int i) { score += i; }
 	public int getScore() { return score; }
 	public int getChips() { return chips; }
 	

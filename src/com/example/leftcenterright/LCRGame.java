@@ -17,6 +17,7 @@ public class LCRGame implements Serializable {
 	{
 		center = new LCRPlayer("Center");
 		numberOfPlayers = p;
+		playersWithChips = p;
 		
 		//create dice
 		Die1 = new LCRDie();
@@ -60,6 +61,7 @@ public class LCRGame implements Serializable {
 		LCRPlayer p = getHeadPlayer();
 		do 
 		{
+			p.setScore(p.getScore() - 3); //subtract 3 chips from their total, for this game
 			p.addChips(3);
 			p = p.getNextPlayer();
 		}while (p != getHeadPlayer());
@@ -83,9 +85,15 @@ public class LCRGame implements Serializable {
 		if (currentPlayer.getChips() > 1) handleRoll(Die2);
 		if (currentPlayer.getChips() > 2) handleRoll(Die3);
 		
+		if (currentPlayer.getChips() == 0) playersWithChips--; //want to see when this drops
+		//down to 1 player.  that last player with chips wins.
+		
 		result += currentPlayer.getName() + " has " + currentPlayer.getChips() + "\n";
+		result += "playersWithChips = " + playersWithChips;
 		//now that we're finished rolling dice and passing chips, go to the next player
 		advanceToNextPlayer();
+		
+		if (playersWithChips == 1) endRound();
 	}
 	
 	public void handleRoll(LCRDie d)
@@ -108,8 +116,18 @@ public class LCRGame implements Serializable {
 	
 	public void giveChips(LCRPlayer p)
 	{
+		//see if the player receiving chips (excluding center) had no chips
+		//if so, reflect the fact that another player has chips
+		if ((p.getChips() == 0) && (p != center)) playersWithChips++;
+		
 		currentPlayer.giveChips(p, 1);
 		result += currentPlayer.getName() + " gave a chip to " + p.getName() + "\n";
+	}
+	
+	public void endRound()
+	{
+		result = currentPlayer.getName() + " won this round.";
+		currentPlayer.setScore(currentPlayer.getScore() + center.getChips());
 	}
 	
 	public String getResult() { return result; }

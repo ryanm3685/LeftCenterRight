@@ -57,7 +57,7 @@
         android:layout_height="wrap_content"
            android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="300dp"
+        android:layout_marginBottom="250dp"
         android:text="@string/Die1Label"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -67,7 +67,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="200dp"
+        android:layout_marginBottom="175dp"
         android:text="@string/Die2Label"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -81,19 +81,10 @@
         android:text="@string/roll" />
 
     <TextView
-        android:id="@+id/ResultLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/rollbutton"
-        android:layout_below="@+id/ScoreLabel"
-        android:layout_marginTop="24dp"
-        android:text="@string/result" />
-
-    <TextView
         android:id="@+id/CenterDisplayLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_marginTop="100dp"
         android:layout_centerHorizontal="true"
         android:text="@string/center"
         android:textAppearance="?android:attr/textAppearanceLarge" />
@@ -105,6 +96,15 @@
         android:layout_below="@+id/CenterDisplayLabel"
         android:layout_centerHorizontal="true"
         android:text="@string/CenterLabel"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/ResultLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="@string/result"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
 </RelativeLayout>
