@@ -80,4 +80,31 @@
         android:layout_marginBottom="18dp"
         android:text="@string/roll" />
 
+    <TextView
+        android:id="@+id/ResultLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/rollbutton"
+        android:layout_below="@+id/ScoreLabel"
+        android:layout_marginTop="24dp"
+        android:text="@string/result" />
+
+    <TextView
+        android:id="@+id/CenterDisplayLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="@string/center"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/CenterLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/CenterDisplayLabel"
+        android:layout_centerHorizontal="true"
+        android:text="@string/CenterLabel"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
 </RelativeLayout>

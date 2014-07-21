@@ -9,6 +9,7 @@
 	<string name="ScoreDisplayLabel">Score</string>
 	<string name="NameLabel">0</string>
 	<string name="ScoreLabel">0</string>
+	<string name="CenterLabel">0</string>
 	<string name="Die1Label">*</string>
 	<string name="Die2Label">*</string>
 	<string name="Die3Label">*</string>
@@ -16,4 +17,7 @@
 	<string name="how_many_players">How many players?</string>
 	<string name="who_is">Who is player </string>
 	<string name="OK_button">OK</string>
+	<string name="result">Welcome!</string>
+	<string name="center">Center</string>
+	
 </resources>

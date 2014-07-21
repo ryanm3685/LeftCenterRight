@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 public class IntroActivity extends Activity {
 	LCRGame game;
-	TextView NameLabel, ScoreLabel, Die1, Die2, Die3;
+	TextView NameLabel, ScoreLabel, CenterLabel, Die1, Die2, Die3, ResultLabel;
 	Button Roll;
 	
 	@Override
@@ -24,10 +24,12 @@ public class IntroActivity extends Activity {
 		game = (LCRGame)getIntent().getSerializableExtra("the_game");
 		NameLabel = (TextView)findViewById(R.id.NameLabel);
 		ScoreLabel = (TextView)findViewById(R.id.ScoreLabel);
+		CenterLabel = (TextView)findViewById(R.id.CenterLabel);
 		Die1 = (TextView)findViewById(R.id.Die1);
 		Die2 = (TextView)findViewById(R.id.Die2);
 		Die3 = (TextView)findViewById(R.id.Die3);
 		Roll = (Button)findViewById(R.id.rollbutton);
+		ResultLabel = (TextView)findViewById(R.id.ResultLabel);
 
 		//initialize the game
 		game.newGame();
@@ -55,11 +57,8 @@ public class IntroActivity extends Activity {
 	{
 		NameLabel.setText(game.getCurrentPlayer().getName());
 		ScoreLabel.setText(game.getCurrentPlayer().getChips()+"");
-		
-		Context theContext = getApplicationContext();
-		String s = game.getDie1().getIndex() + " " + game.getDie2().getIndex() + " " + game.getDie3().getIndex() 
-					+ "chips = " + game.getCurrentPlayer().getChips();
-		Toast.makeText(theContext, s, Toast.LENGTH_LONG).show();
+		CenterLabel.setText(game.getCenter().getChips()+"");
+		ResultLabel.setText(game.getResult());
 		
 		//only show dice that will actually be thrown
 		if (game.getCurrentPlayer().getChips() < 3)
