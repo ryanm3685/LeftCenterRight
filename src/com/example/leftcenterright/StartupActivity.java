@@ -72,8 +72,6 @@ public class StartupActivity extends Activity {
 						{
 							Intent introIntent = new Intent(getApplicationContext(), IntroActivity.class);
 							Bundle introBundle = new Bundle();
-							String s1 = "what the flip";
-							introBundle.putSerializable(SER_KEY, s1);
 							introBundle.putSerializable("the_game", game);
 							introIntent.putExtras(introBundle);
 							startActivity(introIntent);

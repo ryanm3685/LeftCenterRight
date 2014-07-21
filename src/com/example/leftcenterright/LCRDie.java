@@ -1,38 +1,42 @@
 package com.example.leftcenterright;
+import java.io.Serializable;
 import java.util.Random;
 
-public class LCRDie {
+public class LCRDie implements Serializable {
 	private char value; //0,2,4 *, 1 = L, 3 = C, 5 = R
+	private int i;
 	Random r;
 	
 	public LCRDie()
 	{
-		r = new Random(6);
+		r = new Random();
+		value = '*';
 	}
 	
-	public char Roll()
+	public void Roll()
 	{
-		char c = '*';
-		int i = r.nextInt();
+		i = r.nextInt(6);
 		
 		switch (i)
 		{
 		case 0:
 		case 2:
 		case 4:
-			c = '*';
+			value = '*';
 			break;
 		case 1:
-			c = 'L';
+			value = 'L';
 			break;
 		case 3:
-			c = 'C';
+			value = 'C';
 			break;
 		case 5:
-			c = 'R';
+			value = 'R';
 			break;
 		}
-		
-		return c;
-	}
+	}	
+
+	public char getValue() { return value; }
+
+	public int getIndex() { return i; }
 }
