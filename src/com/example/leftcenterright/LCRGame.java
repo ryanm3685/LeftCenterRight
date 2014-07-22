@@ -12,7 +12,6 @@ public class LCRGame implements Serializable {
 	private int numberOfPlayers;
 	private LCRDie Die1, Die2, Die3;
 	private String result; //what happened with this roll? who passed chips to whom?
-	private boolean roundOver = false; //is the round finished?
 	
 	public LCRGame(int p)
 	{
@@ -58,7 +57,6 @@ public class LCRGame implements Serializable {
 	
 	public void newGame()
 	{
-		roundOver = false;
 		result = "";
 		LCRPlayer p = getHeadPlayer();
 		do 
@@ -130,10 +128,8 @@ public class LCRGame implements Serializable {
 	{
 		result = currentPlayer.getName() + " won this round.";
 		currentPlayer.setScore(currentPlayer.getScore() + center.getChips());
-		roundOver = true;
 	}
 	
 	public String getResult() { return result; }
-	public boolean getRoundOver() { return roundOver; }
 
 }

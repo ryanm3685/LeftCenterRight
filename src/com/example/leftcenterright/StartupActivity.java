@@ -91,4 +91,12 @@ public class StartupActivity extends Activity {
 		});
 	}
 
+
+
+
+	public void addPlayer()
+	{
+		
+	}
+
 }

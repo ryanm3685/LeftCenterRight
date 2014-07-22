@@ -3,7 +3,6 @@ package com.example.leftcenterright;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -56,41 +55,26 @@ public class IntroActivity extends Activity {
 	
 	public void redraw()
 	{
-		if (game.getRoundOver())//create intent to go to score screen
-		{
-			Intent scoreIntent = new Intent(getApplicationContext(), ScoreActivity.class);
-			Bundle scoreBundle = new Bundle();
-			scoreBundle.putSerializable("the_game", game);
-			scoreIntent.putExtras(scoreBundle);
-			startActivity(scoreIntent);
-		}
+		NameLabel.setText(game.getCurrentPlayer().getName());
+		ScoreLabel.setText(game.getCurrentPlayer().getChips()+"");
+		CenterLabel.setText(game.getCenter().getChips()+"");
+		ResultLabel.setText(game.getResult());
+		
+		//only show dice that will actually be thrown
+		if (game.getCurrentPlayer().getChips() < 3)
+			Die3.setVisibility(View.INVISIBLE);
 		else
-		{
-			NameLabel.setText(game.getCurrentPlayer().getName());
-			ScoreLabel.setText(game.getCurrentPlayer().getChips()+"");
-			CenterLabel.setText(game.getCenter().getChips()+"");
-			ResultLabel.setText(game.getResult());
+			Die3.setVisibility(View.VISIBLE);
+			Die3.setText(game.getDie3().getValue()+"");
 		
-			//only show dice that will actually be thrown
-			if (game.getCurrentPlayer().getChips() < 3)
-				Die3.setVisibility(View.INVISIBLE);
-			else
-			{
-				Die3.setVisibility(View.VISIBLE);
-				Die3.setText(game.getDie3().getValue()+"");
-			}
+		if (game.getCurrentPlayer().getChips() < 2)
+			Die2.setVisibility(View.INVISIBLE);
+		else
+			Die2.setVisibility(View.VISIBLE);
+			Die2.setText(game.getDie2().getValue()+"");
 		
-			if (game.getCurrentPlayer().getChips() < 2)
-				Die2.setVisibility(View.INVISIBLE);
-			else
-			{
-				Die2.setVisibility(View.VISIBLE);
-				Die2.setText(game.getDie2().getValue()+"");
-			}
-		
-				//of course Die1 will be shown, or this player's turn is skipped!
-				Die1.setText(game.getDie1().getValue()+"");
-		}
+		//of course Die1 will be shown, or this player's turn is skipped!
+		Die1.setText(game.getDie1().getValue()+"");
 	}
 	
 	public void rollDice()
