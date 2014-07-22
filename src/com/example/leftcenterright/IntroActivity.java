@@ -63,11 +63,11 @@ public class IntroActivity extends Activity {
 		
 		if (game.getRoundOver())//create intent to go to score screen
 		{
-			/*Intent scoreIntent = new Intent(getApplicationContext(), ScoreActivity.class);
+			Intent scoreIntent = new Intent(getApplicationContext(), ScoreActivity.class);
 			Bundle scoreBundle = new Bundle();
 			scoreBundle.putSerializable("a_game", game);
 			scoreIntent.putExtras(scoreBundle);
-			startActivity(scoreIntent);*/
+			startActivity(scoreIntent);
 		}
 		
 		//only show dice that will actually be thrown
