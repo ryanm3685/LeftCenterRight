@@ -3,6 +3,7 @@ package com.example.leftcenterright;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -59,6 +60,15 @@ public class IntroActivity extends Activity {
 		ScoreLabel.setText(game.getCurrentPlayer().getChips()+"");
 		CenterLabel.setText(game.getCenter().getChips()+"");
 		ResultLabel.setText(game.getResult());
+		
+		if (game.getRoundOver())//create intent to go to score screen
+		{
+			/*Intent scoreIntent = new Intent(getApplicationContext(), ScoreActivity.class);
+			Bundle scoreBundle = new Bundle();
+			scoreBundle.putSerializable("a_game", game);
+			scoreIntent.putExtras(scoreBundle);
+			startActivity(scoreIntent);*/
+		}
 		
 		//only show dice that will actually be thrown
 		if (game.getCurrentPlayer().getChips() < 3)
