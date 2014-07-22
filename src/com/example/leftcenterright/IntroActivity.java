@@ -59,9 +59,9 @@ public class IntroActivity extends Activity {
 		if (game.getRoundOver())//create intent to go to score screen
 		{
 			Intent scoreIntent = new Intent(getApplicationContext(), ScoreActivity.class);
-			Bundle scoreBundle = new Bundle();
+			/*Bundle scoreBundle = new Bundle();
 			scoreBundle.putSerializable("the_game", game);
-			scoreIntent.putExtras(scoreBundle);
+			scoreIntent.putExtras(scoreBundle);*/
 			startActivity(scoreIntent);
 		}
 		else
