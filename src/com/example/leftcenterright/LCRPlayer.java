@@ -17,7 +17,7 @@ public class LCRPlayer implements Serializable {
 	}
 	
 	public String getName() { return name; }
-	public void setScore(int i) { score += i; }
+	public void setScore(int i) { score = i; }
 	public int getScore() { return score; }
 	public int getChips() { return chips; }
 	
