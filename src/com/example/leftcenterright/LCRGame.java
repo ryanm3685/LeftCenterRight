@@ -53,6 +53,7 @@ public class LCRGame implements Serializable {
 	public LCRPlayer getHeadPlayer() { return head; }
 	public LCRPlayer getTailPlayer() { return tail; }
 	public int getNumberOfPlayers() { return numberOfPlayers; }
+	public int getPlayersWithChips() { return playersWithChips; }
 	public LCRDie getDie1() { return Die1; }
 	public LCRDie getDie2() { return Die2; }
 	public LCRDie getDie3() { return Die3; }
@@ -60,11 +61,13 @@ public class LCRGame implements Serializable {
 	public void newGame()
 	{
 		result = "";
+		playersWithChips = numberOfPlayers;
+		center.setChips(0);
 		LCRPlayer p = getHeadPlayer();
 		do 
 		{
 			p.setScore(p.getScore() - 3); //subtract 3 chips from their total, for this game
-			p.addChips(3);
+			p.setChips(3);
 			p = p.getNextPlayer();
 		}while (p != getHeadPlayer());
 	}

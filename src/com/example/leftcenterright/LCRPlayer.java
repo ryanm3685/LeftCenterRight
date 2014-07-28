@@ -27,6 +27,7 @@ public class LCRPlayer implements Serializable {
 	public void setPrevPlayer(LCRPlayer p) { prevPlayer = p; }
 	public LCRPlayer getPrevPlayer() { return prevPlayer; }
 	
+	public void setChips(int c) { chips = c; }
 	public void addChips(int c) { chips += c; }
 	public void subtractChips(int c) { chips -= c; }
 	

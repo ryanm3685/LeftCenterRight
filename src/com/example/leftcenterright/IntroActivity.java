@@ -60,14 +60,16 @@ public class IntroActivity extends Activity {
 		ScoreLabel.setText(game.getCurrentPlayer().getChips()+"");
 		CenterLabel.setText(game.getCenter().getChips()+"");
 		ResultLabel.setText(game.getResult());
-		
-		if (game.getRoundOver())//create intent to go to score screen
+				
+		if (game.getPlayersWithChips() == 1)//create intent to go to score screen
 		{
 			Intent scoreIntent = new Intent(getApplicationContext(), ScoreActivity.class);
 			Bundle scoreBundle = new Bundle();
 			scoreBundle.putSerializable("a_game", game);
 			scoreIntent.putExtras(scoreBundle);
 			startActivity(scoreIntent);
+			
+			game.newGame();
 		}
 		
 		//only show dice that will actually be thrown
@@ -91,6 +93,5 @@ public class IntroActivity extends Activity {
 	{
 		game.rollDice();		
 	}
-
 
 }
