@@ -94,7 +94,7 @@ public class LCRGame implements Serializable {
 		//down to 1 player.  that last player with chips wins.
 		
 		result += currentPlayer.getName() + " has " + currentPlayer.getChips() + "\n";
-		result += "playersWithChips = " + playersWithChips;
+		result += playersWithChips + " players with Chips";
 		//now that we're finished rolling dice and passing chips, go to the next player
 		advanceToNextPlayer();
 		
