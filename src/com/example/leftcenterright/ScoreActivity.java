@@ -9,7 +9,6 @@ import android.app.Activity;
 import android.content.Intent;
 
 public class ScoreActivity extends Activity{
-	Button ContinueButton;
 	TextView nameTable, scoreTable;
 	LCRGame game;
 
@@ -38,17 +37,6 @@ public class ScoreActivity extends Activity{
 		
 		nameTable.setText(nameString);
 		scoreTable.setText(scoreString);
-		
-		ContinueButton = (Button)findViewById(R.id.ContinueButton);
-		ContinueButton.setOnClickListener(new OnClickListener(){
-
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				finish();
-			}
-			
-		});
 		
 	}
 	
