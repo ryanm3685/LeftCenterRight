@@ -128,6 +128,8 @@ public class IntroActivity extends Activity {
 				theImages[i].setImageResource(R.drawable.nothing);
 				break;
 			}
+			
+			theImages[i].setVisibility(View.VISIBLE);
 		}
 	}
 
