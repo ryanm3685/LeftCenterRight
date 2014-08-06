@@ -8,12 +8,14 @@ import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class IntroActivity extends Activity {
 	LCRGame game;
-	TextView NameLabel, ScoreLabel, CenterLabel, Die1, Die2, Die3, ResultLabel;
+	TextView NameLabel, ScoreLabel, CenterLabel, ResultLabel;
+	ImageView[] theImages = new ImageView[3];
 	Button Roll;
 	
 	@Override
@@ -26,12 +28,15 @@ public class IntroActivity extends Activity {
 		NameLabel = (TextView)findViewById(R.id.NameLabel);
 		ScoreLabel = (TextView)findViewById(R.id.ScoreLabel);
 		CenterLabel = (TextView)findViewById(R.id.CenterLabel);
-		Die1 = (TextView)findViewById(R.id.Die1);
-		Die2 = (TextView)findViewById(R.id.Die2);
-		Die3 = (TextView)findViewById(R.id.Die3);
+
 		Roll = (Button)findViewById(R.id.rollbutton);
 		ResultLabel = (TextView)findViewById(R.id.ResultLabel);
+		
+		theImages[0] = (ImageView)findViewById(R.id.imageView1);
+		theImages[1] = (ImageView)findViewById(R.id.imageView2);
+		theImages[2]= (ImageView)findViewById(R.id.imageView3);
 
+		
 		//initialize the game
 		game.newGame();
 		redraw();
@@ -74,24 +79,56 @@ public class IntroActivity extends Activity {
 		
 		//only show dice that will actually be thrown
 		if (game.getCurrentPlayer().getChips() < 3)
-			Die3.setVisibility(View.INVISIBLE);
+		{
+			setImage(2, false);
+		}
 		else
-			Die3.setVisibility(View.VISIBLE);
-			Die3.setText(game.getDie3().getValue()+"");
+		{
+			setImage(2, true);
+		}
 		
 		if (game.getCurrentPlayer().getChips() < 2)
-			Die2.setVisibility(View.INVISIBLE);
+		{
+			setImage(1, false);
+		}
 		else
-			Die2.setVisibility(View.VISIBLE);
-			Die2.setText(game.getDie2().getValue()+"");
-		
+		{
+			setImage(1, true);
+		}
 		//of course Die1 will be shown, or this player's turn is skipped!
-		Die1.setText(game.getDie1().getValue()+"");
+		setImage(0, true);
 	}
 	
 	public void rollDice()
 	{
 		game.rollDice();		
+	}
+	
+	public void setImage(int i, boolean isVisible)
+	{
+		if (!isVisible)
+		{
+			theImages[i].setVisibility(View.INVISIBLE);
+		}
+		else
+		{
+	
+			switch ((game.getDie(i)).getValue())
+			{
+			case 'L':
+				theImages[i].setImageResource(R.drawable.left);
+				break;
+			case 'C':
+				theImages[i].setImageResource(R.drawable.center);
+				break;
+			case 'R':
+				theImages[i].setImageResource(R.drawable.right);
+				break;
+			case '*':
+				theImages[i].setImageResource(R.drawable.nothing);
+				break;
+			}
+		}
 	}
 
 }

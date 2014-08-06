@@ -10,6 +10,7 @@ public class LCRGame implements Serializable {
 	private LCRPlayer currentPlayer; //whose turn is it?
 	private int playersWithChips; //once this number hit 1, that player wins all the chips in the center pot
 	private int numberOfPlayers;
+	private LCRDie[] DieArray;
 	private LCRDie Die1, Die2, Die3;
 	private String result; //what happened with this roll? who passed chips to whom?
 	private boolean roundOver = false; //is the round finished?
@@ -22,9 +23,11 @@ public class LCRGame implements Serializable {
 		playersWithChips = p;
 		
 		//create dice
-		Die1 = new LCRDie();
+		/*Die1 = new LCRDie();
 		Die2 = new LCRDie();
-		Die3 = new LCRDie();
+		Die3 = new LCRDie();*/
+		DieArray = new LCRDie[3];
+		for (int i = 0; i < DieArray.length; i++) DieArray[i] = new LCRDie();
 	}
 	
 	public void addPlayer(String s)
@@ -54,9 +57,10 @@ public class LCRGame implements Serializable {
 	public LCRPlayer getTailPlayer() { return tail; }
 	public int getNumberOfPlayers() { return numberOfPlayers; }
 	public int getPlayersWithChips() { return playersWithChips; }
-	public LCRDie getDie1() { return Die1; }
+	/*public LCRDie getDie1() { return Die1; }
 	public LCRDie getDie2() { return Die2; }
-	public LCRDie getDie3() { return Die3; }
+	public LCRDie getDie3() { return Die3; }*/
+	public LCRDie getDie(int i) { return DieArray[i]; }
 	
 	public void newGame()
 	{
@@ -86,9 +90,9 @@ public class LCRGame implements Serializable {
 	{
 		result = "";
 		//roll the number of dice the player has, maximum 3
-		handleRoll(Die1);
-		if (currentPlayer.getChips() > 1) handleRoll(Die2);
-		if (currentPlayer.getChips() > 2) handleRoll(Die3);
+		handleRoll(DieArray[0]);
+		if (currentPlayer.getChips() > 1) handleRoll(DieArray[1]);
+		if (currentPlayer.getChips() > 2) handleRoll(DieArray[2]);
 		
 		if (currentPlayer.getChips() == 0) playersWithChips--; //want to see when this drops
 		//down to 1 player.  that last player with chips wins.

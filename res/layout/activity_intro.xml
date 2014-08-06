@@ -15,16 +15,6 @@
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TextView
-        android:id="@+id/Die3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-      	android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="100dp"
-        android:text="@string/Die3Label"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <TextView
         android:id="@+id/ScoreLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -50,35 +40,6 @@
         android:layout_alignParentTop="true"
         android:text="@string/ScoreDisplayLabel"
         android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <TextView
-        android:id="@+id/Die1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-           android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="250dp"
-        android:text="@string/Die1Label"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <TextView
-        android:id="@+id/Die2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="175dp"
-        android:text="@string/Die2Label"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <Button
-        android:id="@+id/rollbutton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="18dp"
-        android:text="@string/roll" />
 
     <TextView
         android:id="@+id/CenterDisplayLabel"
@@ -108,4 +69,39 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor = "#224349"/>
 
+    <Button
+        android:id="@+id/rollbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:text="@string/roll" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/rollbutton"
+        android:layout_marginBottom="20dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/nothing" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/rollbutton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="160dp"
+        android:src="@drawable/nothing" />
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/rollbutton"
+        android:layout_marginBottom="300dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/nothing" />
+    
 </RelativeLayout>
