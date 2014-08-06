@@ -50,11 +50,19 @@ public class StartupActivity extends Activity {
 				// TODO Auto-generated method stub
 				String s = (numberPlayers.getText()).toString();
 				n = Integer.parseInt(s);
+				//make sure the value is between 2-7 inclusive
+				if (n < 2) n = 2;
+				if (n > 7) n = 7;
+				
 				game = new LCRGame(n);
 				
 				//now make the invisible stuff visible, and "how many players stuff" invisible
 				howMany.setVisibility(View.INVISIBLE);
 				numberPlayers.setVisibility(View.INVISIBLE);
+				
+				//fill in player number for who is label
+				whoIs.setText("Who is player " + (i + 1));
+				
 				whoIs.setVisibility(View.VISIBLE);
 				playerNameField.setVisibility(View.VISIBLE);
 				i = 0;//index for which player we are adding
@@ -65,7 +73,7 @@ public class StartupActivity extends Activity {
 					@Override
 					public void onClick(View v) {
 						
-						// TODO Auto-generated method stub
+						
 						String s = (playerNameField.getText()).toString();
 						game.addPlayer(s);
 						if (i == (n - 1))//got everyone's name
@@ -80,6 +88,7 @@ public class StartupActivity extends Activity {
 						{
 							i++;
 							playerNameField.setText(" ");//reset it for entering the other players
+							whoIs.setText("Who is player " + (i + 1));
 						}		
 						
 					}

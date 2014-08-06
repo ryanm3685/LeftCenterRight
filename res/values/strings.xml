@@ -14,7 +14,7 @@
 	<string name="Die2Label">*</string>
 	<string name="Die3Label">*</string>
 	<string name="wassup">Wassup everyone!</string>
-	<string name="how_many_players">How many players?</string>
+	<string name="how_many_players">How many (2 min 7 max) players?</string>
 	<string name="who_is">Who is player </string>
 	<string name="OK_button">OK</string>
 	<string name="result">Welcome!</string>
