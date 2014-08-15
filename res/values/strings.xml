@@ -20,5 +20,8 @@
 	<string name="result">Welcome!</string>
 	<string name="center">Center</string>
 	<string name="continue_button">Continue</string>
+	<string name="playerNumberText">0</string>
+	<string name="newGame">New Game</string>
+	<string name="loadGame">Load Game</string>
 	
 </resources>

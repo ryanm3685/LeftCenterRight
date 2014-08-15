@@ -5,13 +5,6 @@
     android:orientation="vertical" >
 
     <TextView
-        android:id="@+id/wassupLabel"
-        android:layout_width="278dp"
-        android:layout_height="wrap_content"
-        android:text="@string/wassup"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <TextView
         android:id="@+id/HowManyLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -23,26 +16,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="number" />
-
-    <TextView
-        android:id="@+id/whoIsLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/who_is"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <EditText
-        android:id="@+id/playerNameField"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10" >
+        android:inputType="number" >
 
         <requestFocus />
     </EditText>
 
     <Button
-        android:id="@+id/OKButton"
+        android:id="@+id/howManyOK"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/OK_button" />
