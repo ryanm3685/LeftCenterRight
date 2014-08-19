@@ -4,14 +4,14 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
-    <TextView
-        android:id="@+id/whoIsLabel"
+    <Button
+        android:id="@+id/playerOKButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_above="@+id/playerNameField"
-        android:text="@string/who_is"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:layout_below="@+id/playerNameField"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp"
+        android:text="@string/OK_button" />
 
     <EditText
         android:id="@+id/playerNameField"
@@ -19,16 +19,28 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="39dp"
-        android:ems="10" />
+        android:layout_marginTop="62dp"
+        android:ems="10" >
 
-    <Button
-        android:id="@+id/OKButton"
+        <requestFocus />
+    </EditText>
+
+    <TextView
+        android:id="@+id/whoIsLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/playerNameField"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="@string/who_is"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/playerNumberLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="14dp"
-        android:text="@string/OK_button" />
+        android:text="@string/playerNumberText"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
 </RelativeLayout>
