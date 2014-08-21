@@ -2,13 +2,17 @@ package com.example.leftcenterright;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -18,11 +22,16 @@ public class IntroActivity extends Activity {
 	TextView NameLabel, ScoreLabel, CenterLabel, ResultLabel;
 	ImageView[] theImages = new ImageView[3];
 	Button Roll;
+	Context theContext;
+	LayoutInflater li;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_intro);
+		
+		theContext = this;
+		li = LayoutInflater.from(theContext);
 
 		//unpack game object sent from startup screen intent
 		game = (LCRGame)getIntent().getSerializableExtra("the_game");
@@ -65,7 +74,37 @@ public class IntroActivity extends Activity {
 		NameLabel.setText(game.getCurrentPlayer().getName());
 		ScoreLabel.setText(game.getCurrentPlayer().getChips()+"");
 		CenterLabel.setText(game.getCenter().getChips()+"");
+		
+		//take care of the status dialog
+		
+		
+		View resultsView = li.inflate(R.layout.status_display, null);
+		TextView ResultLabel = (TextView)resultsView.findViewById(R.id.ResultLabel);
 		ResultLabel.setText(game.getResult());
+		
+		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+				theContext);
+
+		// set prompts.xml to alertdialog builder
+		alertDialogBuilder.setView(resultsView);
+		
+		alertDialogBuilder
+		.setCancelable(false)
+		.setPositiveButton("OK",
+		  new DialogInterface.OnClickListener() {
+		    public void onClick(DialogInterface dialog,int id) {
+		    	
+		    	dialog.cancel();
+		    }
+		  });
+
+		// create alert dialog
+		AlertDialog alertDialog = alertDialogBuilder.create();
+
+		// show it
+		alertDialog.show();
+		
+		
 				
 		if (game.getPlayersWithChips() == 1)//create intent to go to score screen
 		{

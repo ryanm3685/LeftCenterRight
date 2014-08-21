@@ -59,16 +59,6 @@
         android:text="@string/CenterLabel"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <TextView
-        android:id="@+id/ResultLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:text="@string/result"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor = "#224349"/>
-
     <Button
         android:id="@+id/rollbutton"
         android:layout_width="wrap_content"

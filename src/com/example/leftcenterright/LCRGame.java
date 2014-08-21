@@ -142,5 +142,10 @@ public class LCRGame implements Serializable {
 	
 	public String getResult() { return result; }
 	public boolean getRoundOver() { return roundOver; }
+	
+	public void saveGame()
+	{
+		
+	}
 
 }

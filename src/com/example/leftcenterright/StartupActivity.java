@@ -73,7 +73,7 @@ public class StartupActivity extends Activity {
 						if (n > 7) n = 7;
 						
 						game = new LCRGame(n);
-						i = 0;//index for which player we are adding
+						i = 0;//index for which player we are addingfdsf
 				    	getPlayerNames();//this is where the dialog for entering the player names will be
 				    }
 				  })
