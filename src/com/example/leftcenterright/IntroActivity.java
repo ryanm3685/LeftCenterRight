@@ -193,6 +193,7 @@ public class IntroActivity extends Activity {
 	 		    	
 	 		    	game.saveGame();//save this game and then quit
 	 		    	quitStatus = true;
+	 		    	finish();
 	 		    }
 	 		  })
 	 		  .setNeutralButton("No",
@@ -201,6 +202,7 @@ public class IntroActivity extends Activity {
 	 		    	
 	 		    	dialog.cancel();
 	 		    	quitStatus = true;
+	 		    	finish();
 	 		    }
 	 		  })
 	 		  .setPositiveButton("Cancel",

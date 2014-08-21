@@ -24,5 +24,6 @@
 	<string name="newGame">New Game</string>
 	<string name="loadGame">Load Game</string>
 	<string name="quit">Save game before quitting?</string>
+	<string name="save">Save</string>
 	
 </resources>
