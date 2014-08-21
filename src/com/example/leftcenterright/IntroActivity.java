@@ -24,6 +24,7 @@ public class IntroActivity extends Activity {
 	Button Roll;
 	Context theContext;
 	LayoutInflater li;
+	boolean quitStatus; //will we be quitting this program?
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -76,8 +77,6 @@ public class IntroActivity extends Activity {
 		CenterLabel.setText(game.getCenter().getChips()+"");
 		
 		//take care of the status dialog
-		
-		
 		View resultsView = li.inflate(R.layout.status_display, null);
 		TextView ResultLabel = (TextView)resultsView.findViewById(R.id.ResultLabel);
 		ResultLabel.setText(game.getResult());
@@ -177,7 +176,51 @@ public class IntroActivity extends Activity {
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 	     if (keyCode == KeyEvent.KEYCODE_BACK) {
 	     //preventing default implementation previous to android.os.Build.VERSION_CODES.ECLAIR
-	     return true;
+	    	 
+	    	//bring up a dialog asking if the user wants to save
+	    	View quitView = li.inflate(R.layout.quit_dialog, null);
+	 		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+	 				theContext);
+
+	 		// set prompts.xml to alertdialog builder
+	 		alertDialogBuilder.setView(quitView);
+	 		
+	 		alertDialogBuilder
+	 		.setCancelable(false)
+	 		.setNegativeButton("Yes",
+	 		  new DialogInterface.OnClickListener() {
+	 		    public void onClick(DialogInterface dialog,int id) {
+	 		    	
+	 		    	game.saveGame();//save this game and then quit
+	 		    	quitStatus = true;
+	 		    }
+	 		  })
+	 		  .setNeutralButton("No",
+	 		  new DialogInterface.OnClickListener() {
+	 		    public void onClick(DialogInterface dialog,int id) {
+	 		    	
+	 		    	dialog.cancel();
+	 		    	quitStatus = true;
+	 		    }
+	 		  })
+	 		  .setPositiveButton("Cancel",
+	 		  new DialogInterface.OnClickListener() {
+	 		    public void onClick(DialogInterface dialog,int id) {
+	 		    	
+	 		    	dialog.cancel();
+	 		    	quitStatus = false;
+	 		    }
+	 		  });
+
+	 		// create alert dialog
+	 		AlertDialog alertDialog = alertDialogBuilder.create();
+
+	 		// show it
+	 		alertDialog.show();
+	    	//quit if we need to 
+	 		/*if (quitStatus) return super.onKeyDown(keyCode, event); 
+	 		else return true;*/
+	 		//return super.onKeyDown(keyCode, event); 
 	     }
 	     return super.onKeyDown(keyCode, event);    
 	}///
